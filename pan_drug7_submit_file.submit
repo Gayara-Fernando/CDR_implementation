@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=pt_pan_drug
+#SBATCH --ntasks=16
+#SBATCH --mem=256g
+#SBATCH --time=48:00:00
+#SBATCH --error=pt_job_pd_7.%J.err
+#SBATCH --output=pt_job_pd_7.%J.out
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+
+module purge
+module load pytorch-gpu/py39/1.13
+
+python pan_drug_7.py
